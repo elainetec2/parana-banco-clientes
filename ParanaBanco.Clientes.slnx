@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="ParanaBanco.Clientes.Application/ParanaBanco.Clientes.Application.csproj" Id="3a327d61-4b12-45fe-ad8b-0ec81886bcda" />
   <Project Path="ParanaBanco.Clientes.Domain/ParanaBanco.Clientes.Domain.csproj" />
   <Project Path="ParanaBanco.Clientes.UnitTests/ParanaBanco.Clientes.UnitTests.csproj" />
 </Solution>
