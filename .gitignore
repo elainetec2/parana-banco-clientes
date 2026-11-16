@@ -1,0 +1,22 @@
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build
+**/bin/
+**/obj/
+
+# Testes
+TestResults/
+coverage/
+
+# Configurações locais e segredos
+.env
+.env.*
+**/appsettings.Development.json
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

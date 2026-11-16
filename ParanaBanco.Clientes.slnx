@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ParanaBanco.Clientes.Domain/ParanaBanco.Clientes.Domain.csproj" />
+  <Project Path="ParanaBanco.Clientes.UnitTests/ParanaBanco.Clientes.UnitTests.csproj" />
+</Solution>
