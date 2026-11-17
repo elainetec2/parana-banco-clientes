@@ -5,6 +5,7 @@ using ParanaBanco.Clientes.Application.DTOs;
 using ParanaBanco.Clientes.Application.Events;
 using ParanaBanco.Clientes.Application.Interfaces;
 using ParanaBanco.Clientes.Domain.Entities;
+using ParanaBanco.Clientes.Application.Exceptions;
 
 namespace ParanaBanco.Clientes.Application.UseCases.CadastrarCliente
 {
@@ -35,8 +36,7 @@ namespace ParanaBanco.Clientes.Application.UseCases.CadastrarCliente
                 cancellationToken);
 
             if (cpfExistente)
-                throw new InvalidOperationException(
-                    "Já existe um cliente cadastrado com este CPF.");
+                throw new ClienteJaCadastradoException();
 
             var evento = new ClienteCadastrado(
                 Guid.NewGuid(),

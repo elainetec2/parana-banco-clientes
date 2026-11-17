@@ -7,6 +7,7 @@ using ParanaBanco.Clientes.Application.Events;
 using ParanaBanco.Clientes.Application.Interfaces;
 using ParanaBanco.Clientes.Application.UseCases.CadastrarCliente;
 using ParanaBanco.Clientes.Domain.Entities;
+using ParanaBanco.Clientes.Application.Exceptions;
 
 namespace ParanaBanco.Clientes.UnitTests.UseCases.CadastraClientes
 {
@@ -76,7 +77,7 @@ namespace ParanaBanco.Clientes.UnitTests.UseCases.CadastraClientes
             var acao = () => CriarUseCase().ExecutarAsync(request);
 
             // Assert
-            await Assert.ThrowsAsync<InvalidOperationException>(acao);
+            await Assert.ThrowsAsync<ClienteJaCadastradoException>(acao);
 
             _persistenceMock.Verify(
                 x => x.SalvarClienteComEventoAsync(
