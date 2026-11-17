@@ -67,7 +67,7 @@ O CPF é normalizado para conter somente dígitos e o e-mail é normalizado ante
 
 Quando um CPF já está cadastrado, o caso de uso lança a exceção `ClienteJaCadastradoException`.
 
-**Limitação atual:** o tratamento HTTP específico dessa exceção ainda não está implementado; portanto, a API pode retornar HTTP 500 em vez de HTTP 409. O mesmo se aplica a algumas falhas de validação que ainda precisam ser mapeadas para HTTP 400.
+A API trata os erros de cadastro retornando **HTTP 409 Conflict** quando o CPF já está cadastrado e **HTTP 400 Bad Request** para argumentos inválidos. Erros inesperados permanecem sujeitos ao tratamento padrão do ASP.NET Core.
 
 ## 5. Pré-requisitos
 
@@ -287,7 +287,7 @@ Cada microsserviço mantém seu próprio banco de dados.
 - RabbitMQ em Docker para comunicação assíncrona.
 - MassTransit Bus Outbox para reduzir riscos de perda de eventos.
 - Contratos de eventos definidos localmente nos serviços consumidores, evitando referências diretas entre repositórios.
-- Ausência de um tratamento HTTP global para erros de domínio, melhoria identificada para evolução futura.
+- Tratamento de erros de cadastro diretamente no controller, com possibilidade de evolução futura para um tratamento global utilizando ProblemDetails.
 - Ausência de autenticação e autorização, por não fazerem parte do escopo funcional implementado neste desafio.
 
 ## 14. Repositórios relacionados
