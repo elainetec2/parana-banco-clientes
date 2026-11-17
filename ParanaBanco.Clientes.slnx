@@ -1,5 +1,7 @@
 <Solution>
+  <Project Path="ParanaBanco.Clientes.API/ParanaBanco.Clientes.API.csproj" Id="a8876bcc-20b3-43e1-943f-e698d7ce7fea" />
   <Project Path="ParanaBanco.Clientes.Application/ParanaBanco.Clientes.Application.csproj" Id="3a327d61-4b12-45fe-ad8b-0ec81886bcda" />
   <Project Path="ParanaBanco.Clientes.Domain/ParanaBanco.Clientes.Domain.csproj" />
+  <Project Path="ParanaBanco.Clientes.Infrastructure/ParanaBanco.Clientes.Infrastructure.csproj" Id="2e934a95-550d-4be3-8921-d65c6c3e099b" />
   <Project Path="ParanaBanco.Clientes.UnitTests/ParanaBanco.Clientes.UnitTests.csproj" />
 </Solution>
