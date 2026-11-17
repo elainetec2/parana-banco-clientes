@@ -1,5 +1,13 @@
 # Paraná Banco — Microsserviço de Cadastro de Clientes
 
+## Diagrama de arquitetura
+
+O fluxograma abaixo apresenta a comunicação assíncrona entre os três microsserviços, utilizando RabbitMQ e bancos de dados independentes.
+
+![Arquitetura dos microsserviços do Paraná Banco](arquitetura-parana-banco.png)
+
+O arquivo [editável no draw.io](arquitetura-parana-banco.drawio) também está disponível neste repositório.
+
 Microsserviço responsável pelo cadastro, validação e consulta de clientes, desenvolvido em **.NET 10**, com **ASP.NET Core, Entity Framework Core, SQL Server, RabbitMQ e MassTransit**.
 
 Este projeto faz parte de uma arquitetura de três microsserviços independentes:
