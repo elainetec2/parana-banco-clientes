@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ParanaBanco.Clientes.Application.DTOs;
+using ParanaBanco.Clientes.Application.Exceptions;
 using ParanaBanco.Clientes.Application.UseCases.CadastrarCliente;
 using ParanaBanco.Clientes.Application.UseCases.ObterClientePorId;
+
 
 namespace ParanaBanco.Clientes.API.Controllers
 {
@@ -24,17 +26,30 @@ namespace ParanaBanco.Clientes.API.Controllers
         [ProducesResponseType(
             typeof(ClienteResponse),
             StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<ActionResult<ClienteResponse>> Cadastrar(
             [FromBody] CadastrarClienteRequest request,
             CancellationToken cancellationToken)
         {
-            var cliente = await _cadastrarCliente.ExecutarAsync(
-                request,
-                cancellationToken);
+            try
+            {
+                var cliente = await _cadastrarCliente.ExecutarAsync(
+                    request,
+                    cancellationToken);
 
-            return StatusCode(
-                StatusCodes.Status201Created,
-                cliente);
+                return StatusCode(
+                    StatusCodes.Status201Created,
+                    cliente);
+            }
+            catch (ClienteJaCadastradoException ex)
+            {
+                return Conflict(new { mensagem = ex.Message });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { mensagem = ex.Message });
+            }
         }
 
 
