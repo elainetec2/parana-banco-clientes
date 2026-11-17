@@ -29,6 +29,12 @@ namespace ParanaBanco.Clientes.Infrastructure.DependencyInjection
                     o.UseBusOutbox();
                 });
 
+                x.AddOptions<MassTransitHostOptions>()
+                 .Configure(options =>
+                 {
+                     options.WaitUntilStarted = false;
+                 });
+
                 x.UsingRabbitMq((context, cfg) =>
                 {
                     cfg.Host("localhost", "/", h =>

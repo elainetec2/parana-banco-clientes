@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
+  </Folder>
   <Project Path="ParanaBanco.Clientes.API/ParanaBanco.Clientes.API.csproj" Id="a8876bcc-20b3-43e1-943f-e698d7ce7fea" />
   <Project Path="ParanaBanco.Clientes.Application/ParanaBanco.Clientes.Application.csproj" Id="3a327d61-4b12-45fe-ad8b-0ec81886bcda" />
   <Project Path="ParanaBanco.Clientes.Domain/ParanaBanco.Clientes.Domain.csproj" />
